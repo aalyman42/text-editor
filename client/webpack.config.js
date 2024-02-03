@@ -23,7 +23,7 @@ module.exports = () => {
         title: "Webpack Plugin",
       }),
       new InjectManifest({
-        swSrc: "./src-sw.js",
+        swSrc: "./src/src-sw.js",
         swDest: "src-sw.js",
       }),
       new WebpackPwaManifest({
@@ -33,12 +33,10 @@ module.exports = () => {
         background_color: "#ffffff",
         start_url: "./",
         publicPath: "./",
-        icons: [
-          {
-            src: path.resolve("./src/images/logo.png"),
-            sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
-          },
-        ],
+        icons: {
+          src: "./src/images/logo.png",
+          size: 96,
+        },
       }),
     ],
 
@@ -61,10 +59,6 @@ module.exports = () => {
               ],
             },
           },
-        },
-        {
-          test: /\.(png|svg|jpg|jpeg|gif)$/i,
-          type: "asset/resource",
         },
       ],
     },

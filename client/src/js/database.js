@@ -35,7 +35,7 @@ export const getDb = async () => {
     const request = store.get(1);
     const result = await request;
     console.log(result);
-    return result;
+    return result.jateData;
   } catch (error) {
     console.error("getDb not implemented");
   }
